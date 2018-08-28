@@ -1,8 +1,8 @@
 # $@: name_target
-all: name_target foo.a(bar.o) foo bar bzz baa bcc
+all: name_target foo.a(bar.o) foo bar bzz baa bcc dir/foo.o dir/ftt.o
 
 name_target:
-	@echo $@
+	@echo "\$$@ =" $@
 	@echo "----------"
 
 foo.a(bar.o):
@@ -28,4 +28,21 @@ baa: a.c b.c c.c a.c
 
 bcc: a.c b.h c.c a.c b.c a.h
 	@echo $+
+	@echo "----------"
+
+dir/foo.o: a.c b.h c.c a.c b.c a.h
+	@echo "\$$(@D)" $(@D)
+	@echo $(@F)
+	@echo $(*D)
+	@echo $(*F)
+	@echo $(%D)
+	@echo $(%F)
+	@echo $(<D)
+	@echo $(<F)
+	@echo $(^D)
+	@echo $(^F)
+	@echo $(+D)
+	@echo $(+F)
+	@echo $(?D)
+	@echo $(?F)
 	@echo "----------"
