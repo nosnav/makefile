@@ -27,8 +27,10 @@
 | 22 | $(?D) |  |
 | 23 | $(?F) |  |
   
-1. **$@**   :thay thế tên của target 
-giả sử có đoạn makefile:   
-`name_target:`  
-`   @echo $@`  
+1. **$@**   :thay thế tên của target  
+giả sử có đoạn makefile:  
+```makefile
+name_target:
+    @echo $@
+```  
 thì kết quả in ra là `name_target`
