@@ -52,18 +52,24 @@ kết quả in ra là `a.c`
 04. $? :thay thế tên của tất cả prerequisite  
 ```makefile
 foo: a.c b.c c.c
-	@echo $^
+	@echo $?
 ```  
 kết quả in ra là `a.c b.c c.c`  
 
 05. $^ :thay thế tên của tất cả prerequisite  
 ```makefile
-foo: a.c b.c c.c
+foo: a.c b.c c.c a.c
 	@echo $^
 ```  
-kết quả in ra là `a.c b.c c.c`  
+kết quả in ra là `a.c b.c c.c`. a.c sử dụng 2 lần nhưng chỉ xuất hiện 1 lần trong kết quả  
 
-06. $+  
+06. $+ :thay thế tên của tất cả prerequisite, cho phép lặp lại  
+```makefile
+foo: a.c b.c c.c a.c
+	@echo $+
+```  
+kết quả in ra là `a.c b.c c.c a.c`. a.c được xuất hiện 2 lần  
+
 07. $|
 08. $*
 09. $?
