@@ -27,30 +27,42 @@
 | 22 | $(?D) |  |
 | 23 | $(?F) |  |
   
-01. $@ :thay thế tên của target  
+1. $@ :thay thế tên của target  
 ```makefile
 name_target:
     @echo $@
 ```  
 thì kết quả in ra là `name_target`  
 
-02. $% :thay thế tên target con, sử dụng khi target có chứa target con
+2. $% :thay thế tên target con, sử dụng khi target có chứa target con
 ```makefile
 foo.a(bar.o):
 	@echo $@
 	@echo $%
 ```  
-kết quả in ra là $@ = foo.a và $% = bar.o  
+    kết quả in ra là $@ = foo.a và $% = bar.o   
 
-03. $< :thay thế tên của prerequisite đầu tiên
+3. $< :thay thế tên của prerequisite đầu tiên
 ```makefile
 foo: a.c b.c c.c
 	@echo $<
 ```  
-kết quả in ra là `a.c`  
+    kết quả in ra là `a.c`  
 
-04. $?
-05. $^ thay thế tên của tất cả prerequisite
+04. $? :thay thế tên của tất cả prerequisite  
+```makefile
+foo: a.c b.c c.c
+	@echo $^
+```  
+    kết quả in ra là `a.c b.c c.c`  
+
+05. $^ :thay thế tên của tất cả prerequisite  
+```makefile
+foo: a.c b.c c.c
+	@echo $^
+```  
+    kết quả in ra là `a.c b.c c.c`  
+    
 06. $+  
 07. $|
 08. $*
