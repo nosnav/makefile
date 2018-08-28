@@ -74,8 +74,20 @@ kết quả in ra là `a.c b.c c.c a.c`. a.c được xuất hiện 2 lần
 08. $*
 09. $?
  
-10. $(@D)
-11. $(@F)
+10. $(@D) : đường dẫn thư mục của target, không bao gồm phí sau dấu /  
+```makefile
+dir/foo.o: a.c b.h c.c a.c b.c a.h
+	@echo $(@D)
+```  
+kết quả in ra là `dir`  
+
+11. $(@F) :  
+```makefile
+dir/ftt.o: a.c b.h c.c a.c b.c a.h
+	@echo $(@F)
+```  
+kết quả in ra là `ftt.o`  
+
 12. $(*D)
 13. $(*F)
 14. $(%D)
